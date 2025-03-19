@@ -1,0 +1,18 @@
+p#primary{
+    color: red;
+}
+p.primary{
+    color: aqua;
+}
+div#descendant{
+    color: blue;
+}
+div>a{
+    color: green;
+}
+p+p{
+    color: yellow;
+}
+h1#header.intro{
+    color: purple;
+}
