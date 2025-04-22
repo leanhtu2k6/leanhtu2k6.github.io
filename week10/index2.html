@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu nhà hàng</title>
+    <style>
+        .grid-view .menu-items{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .grid-view .menu-items{
+            margin: 0;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Menu nhà hàng</h1>
+    <button class="toggle-btn" onclick="toggleView()">Chuyển đổi chế độ hiển thị</button>
+
+    <div class="category">
+        <h2>Khai vị</h2>
+        <hr style="">
+        <ul class="menu-items">
+            <li class="menu-item">Gỏi cuốn tôm thịt</li>
+            <li class="menu-item">Nem rán</li>
+            <li class="menu-item">Salad rau củ</li>
+            <li class="menu-item">Súp hải sản</li>
+        </ul>
+        <ul class="menu-items">
+            <li class="menu-item">Gỏi cuốn tôm thịt</li>
+            <li class="menu-item">Nem rán</li>
+            <li class="menu-item">Salad rau củ</li>
+            <li class="menu-item">Súp hải sản</li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleView(){
+            const menuItems = documnet.querySelectorAll('.menu-items');
+            menuItems.forEach(iteam => {
+                iteams.parentElement.classList.toggle('grid-view');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" id="main_form">
+        <input type="number" id="number1">
+        <br>
+        <button onclick="checkNumber();" id="check_button">Check</button>
+        <button onclick="resetNew();" id="reset_button" style="display: none;">Reset</button>
+        <p id="result" style="color: red"></p>
+    </form>
+
+    <script>
+        function checkNumber() {
+            document.getElementById("reset_button").style.display="block";//hiện nút reset//
+            document.getElementById("check_button").style.display="none";//ẩn lại nút check//
+            var x = parseInt(document.getElementById("number1").value);//lấy giá trị ng dùng nhập vào//
+            if(x%2=== 0){
+                //show text at the bottom of the form//
+                var text = document.getElementById("result");//Là một biến tham chiếu đến thẻ <p> có id="result" để hiển thị và thay đổi nội dung/màu sắc dựa trên kết quả.//
+                text.innerHTML= x + "is <b>Even</b>";
+                text.style.color="green";
+            }else{
+                var text = document.getElementById("result");
+                text.innerHTML= x + "is <b>Odd</b>";
+                text.style.color="red";
+            }
+        }
+        function resetNew() {
+            document.getElementById("result").innerHTML="";// xóa kết quả
+            document.getElementById("number1").value="";//xóa input
+            document.getElementById("reset_button").style.display="none";//ẩn lại nút reset//
+            document.getElementById("check_button").style.display="block";//hiện nút check//
+        }
+    </script>
+</body>
+</html>
