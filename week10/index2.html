@@ -11,7 +11,7 @@
             gap: 10px;
         }
 
-        .grid-view .menu-items{
+        .grid-view .menu-item{
             margin: 0;
         }
     </style>
@@ -23,26 +23,25 @@
 
     <div class="category">
         <h2>Khai vị</h2>
-        <hr style="">
         <ul class="menu-items">
             <li class="menu-item">Gỏi cuốn tôm thịt</li>
             <li class="menu-item">Nem rán</li>
             <li class="menu-item">Salad rau củ</li>
             <li class="menu-item">Súp hải sản</li>
         </ul>
-        <ul class="menu-items">
-            <li class="menu-item">Gỏi cuốn tôm thịt</li>
-            <li class="menu-item">Nem rán</li>
-            <li class="menu-item">Salad rau củ</li>
-            <li class="menu-item">Súp hải sản</li>
+        <ul class="menu-item">
+            <li class="menu-item">mons 1</li>
+            <li class="menu-item">món 2</li>
+            <li class="menu-item">món 3</li>
+            <li class="menu-item">món 4</li>
         </ul>
     </div>
 
     <script>
         function toggleView(){
-            const menuItems = documnet.querySelectorAll('.menu-items');
-            menuItems.forEach(iteam => {
-                iteams.parentElement.classList.toggle('grid-view');
+            const menuItems = document.querySelectorAll(".menu-items");
+            menuItems.forEach((iteams) => {
+                iteams.parentElement.classList.toggle("grid-view");
             });
         }
     </script>

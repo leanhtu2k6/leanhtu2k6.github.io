@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISV2017</title>
+    <style>
+        nav{
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        nav a:hover{
+            color: #4caf50;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td{
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        tr:hover{
+            background-color: #f5f5f5;
+        }
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            margin-left: 155px ;
+            margin-bottom: 15px;
+            
+        }
+        .form-container{
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 800px;
+        }
+        input[type="text"],input[type="email"],textarea{
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <nav id="mainNav" style="display: block;">
+    <a href="#">Trang chủ</a>  - 
+    <a href="#">Sách ©</a> - 
+    <a href="#">Tác giả ™</a> - 
+    <a href="#">Liên hệ</a> - 
+    </nav>
+    <button onclick="toggleMenu()">
+        Ẩn/Hiện Menu
+    </button>
+    <h2>Bảng link kiện máy tính ©</h2>
+    <table id="componentTable" style="color:black;">
+        <tbody>
+            <tr>
+                <th>Tên linh kiện</th>
+                <th>Giá (VND)</th>
+                <th>Đánh giá ?star</th>
+            </tr>
+        </tbody>
+        <tr>
+            <td>CPU Intel™ Core i5</td>
+            <td>50000000</td>
+            <td>4.5/5</td>
+        </tr>
+        <tr>
+            <td>RAM DDR4 8GB</td>
+            <td>800000</td>
+            <td>4.0/5</td>
+        </tr>
+        <tr>
+            <td>Ổ cứng SSD 256GB</td>
+            <td>1200000</td>
+            <td>4.8/5</td>
+        </tr>
+
+    </table>
+    <button onclick="changecolor()" id="1">Đổi màu chữ</button>
+    <button onclick="sorttable()" id="1">Sắp xếp theo giá</button>
+    <div class="form-container">
+        <h3>Biểu mẫu liên hệ</h3>
+        <form onsubmit="return validateForm()">
+            <label>Họ tên:</label>
+            <input type="text" id="name">
+            <label>Email:</label>
+            <input type="email" id="email">
+            <label>Tin nhắn:</label>
+            <textarea id="message"></textarea>
+            <input type="submit" value="Gửi">
+        </form>
+    </div>
+    <script>
+        let isRed = false;
+
+        function changecolor(){
+            const table= document.getElementById("componentTable");
+            table.style.color= isRed ? "black": "red";
+            isRed=!isRed
+        }
+
+        function sorttable(){
+            const table= document.getElementById("componentTable");
+            const rows = Array.from(table.rows).slice(1);
+            rows.sort((a,b)=>{
+                const priceA = parseInt(a.cells[1].innerText);
+                const priceB = parseInt(b.cells[1].innerText);
+                return priceA - priceB;
+
+            });
+            rows.forEach(row => table.appendChild(row));
+
+        }
+        function toggleMenu(){
+            const nav = document.getElementById("mainNav");
+            nav.style.display = nav.style.display==="none"? " block":"none";
+
+        }
+        function validateForm(){
+            const name= document.getElementById("name").value;
+            const email= document.getElementById("email").value;
+            const message= document.getElementById("message").value;
+
+            if ( name===""|| email===""|| message===""){
+                alert("Vui lòng nhập đầy đủ thông tin");
+                return false;
+            } 
+            alert("Gửi thành công");
+            return true;
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu nhà hàng</title>
+  <style>
+    .category {
+      display: flex; /* Thêm flex để 2 ul nằm ngang */
+      gap: 20px; /* Khoảng cách giữa 2 ul */
+      align-items: flex-start; /* Cho 2 ul đều thẳng từ trên xuống */
+    }
+
+    .menu-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu-item {
+      margin-bottom: 10px;
+    }
+
+    /* Nếu bạn vẫn muốn toggle dạng grid cho từng ul */
+    .grid-view {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menu nhà hàng</h1>
+  <button class="toggle-btn" onclick="toggleView()">Chuyển đổi chế độ hiển thị</button>
+
+  <div class="category">
+    <ul class="menu-items">
+      <li class="menu-item">Gỏi cuốn tôm thịt</li>
+      <li class="menu-item">Nem rán</li>
+      <li class="menu-item">Salad rau củ</li>
+      <li class="menu-item">Súp hải sản</li>
+    </ul>
+    <ul class="menu-items">
+      <li class="menu-item">Món 1</li>
+      <li class="menu-item">Món 2</li>
+      <li class="menu-item">Món 3</li>
+      <li class="menu-item">Món 4</li>
+    </ul>
+  </div>
+  <table>
+    <thead>
+      <tr>
+<th>fff</th>
+<th>fff</th>
+<th>fff</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td><details>
+          <div class="mb-3">
+            <label for="" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name=""
+              id=""
+              aria-describedby="emailHelpId"
+              placeholder="abc@mail.com"
+            />
+            <small id="emailHelpId" class="form-text text-muted"
+              >Help text</small
+            >
+          </div>
+          
+        </details></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <script>
+    function toggleView() {
+      const menuItems = document.querySelectorAll(".menu-items");
+      menuItems.forEach((items) => {
+        items.classList.toggle("grid-view");
+      });
+    }
+  </script>
+  
+</body>
+</html>

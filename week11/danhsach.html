@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So sánh số</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-cell {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Số thứ nhất</th>
+                <th>Số thứ hai</th>
+                <th>Hành động</th>
+                <th>Kết quả</th>
+            </tr>
+        </thead>
+        <tbody id="comparisonTableBody">
+            <tr>
+                <td><input type="number" id="num1_1" value="10"></td>
+                <td><input type="number" id="num2_1" value="5"></td>
+                <td><button onclick="compareNumbers(1)">So sánh</button></td>
+                <td id="result_1" class="result-cell"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="num1_2" value="2"></td>
+                <td><input type="number" id="num2_2" value="8"></td>
+                <td><button onclick="compareNumbers(2)">So sánh</button></td>
+                <td id="result_2" class="result-cell"></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="num1_3" value="7"></td>
+                <td><input type="number" id="num2_3" value="7"></td>
+                <td><button onclick="compareNumbers(3)">So sánh</button></td>
+                <td id="result_3" class="result-cell"></td>
+            </tr>
+            </tbody>
+    </table>
+
+    <script>
+        function compareNumbers(rowNumber) {
+            const num1Id = `num1_${rowNumber}`;
+            const num2Id = `num2_${rowNumber}`;
+            const resultId = `result_${rowNumber}`;
+
+            const number1 = parseFloat(document.getElementById(num1Id).value);
+            const number2 = parseFloat(document.getElementById(num2Id).value);
+            const resultCell = document.getElementById(resultId);
+
+            if (isNaN(number1) || isNaN(number2)) {
+                resultCell.textContent = "Vui lòng nhập số hợp lệ.";
+                return;
+            }
+
+            if (number1 > number2) {
+                resultCell.textContent = `${number1} lớn hơn ${number2}`;
+            } else if (number1 < number2) {
+                resultCell.textContent = `${number1} bé hơn ${number2}`;
+            } else {
+                resultCell.textContent = `${number1} bằng ${number2}`;
+            }
+        }
+    </script>
+</body>
+</html>

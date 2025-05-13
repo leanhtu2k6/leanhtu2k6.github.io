@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display date and timee </title>
+    <style type="text/css">input{width: 400px;}</style>
+    <script>
+        var timer = null;
+        function play(){
+            var dayofweek = ["Chủ nhật", "Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"];
+            var today = new Date();
+            document.f.d.value = "Hôm nay là : " + dayofweek[today.getDay()]+
+                                ", ngày "         + today.getDate()+
+                                ", tháng "       +(today.getMonth()+1)+
+                                ", năm "          +today.getFullYear();
+            h=today.getHours();
+            document.f.t.value="Bây giờ là : "+(h>12? h-12: h)+
+                                ":"             + today.getMinutes()+
+                                ":"             +today.getSeconds()+
+                                ""              +(h>11? "PM":"AM");
+            timer = setTimeout("play()",1000);
+
+        }
+        function stop() {clearTimeout(timer);}
+    </script>
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f0f0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body onload="play()">
+    <center><form name="f">
+        <input name="d"><br><input name="t"><br>
+        <button type="button" onclick="play()">Chạy đồng hồ</button>
+        <button type="button" onclick="stop()">Dừng đồng hồ</button>
+
+    </form></center>
+    
+</body>
+</html>
